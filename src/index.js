@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // We do not need this yet:
 // import * as serviceWorker from './serviceWorker';
+import Todos from './components/Todos';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App /> 
+    <Todos /> 
   </React.StrictMode>,
   document.getElementById('root')
 );

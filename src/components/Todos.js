@@ -5,7 +5,7 @@ import React from 'react';
 function Todos() {
   return (
     <div>
-      <h1>Starting the app</h1>
+      <h1>Component</h1>
     </div>
   );
 }
