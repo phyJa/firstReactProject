@@ -7,13 +7,13 @@ export class TodoItem extends Component {
     verify () {
         if(this.props.todo.completed) {
            const completed = {
-               backgroundColor: 'green',
+               color: 'green',
                textDecoration: 'line-through'
            }
             return completed; 
         } else {
             const notCompleted = {
-                backgroundColor: 'tomato',
+                color: 'tomato',
                 textDecoration: 'none'
             }
             return notCompleted;
