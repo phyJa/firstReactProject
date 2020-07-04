@@ -3,11 +3,29 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
+    //Verify if a Todo is already done and style it
+    verify () {
+        if(this.props.todo.completed) {
+           const completed = {
+               backgroundColor: 'green',
+               textDecoration: 'line-through'
+           }
+            return completed; 
+        } else {
+            const notCompleted = {
+                backgroundColor: 'tomato',
+                textDecoration: 'none'
+            }
+            return notCompleted;
+        }
+    }
+    
+
     render() {
         return (
             // Inline style with JSX style = {{propertyInCamelCase: 'value'}}
             // Or using variables style = {varName}
-            <div style = {styling}>
+            <div style = {this.verify()}>
               <p> {this.props.todo.title} </p>  
             </div>
         )
@@ -15,11 +33,11 @@ export class TodoItem extends Component {
 }
 
 //Variable for color and other styles. Note that it must be an object
-const styling = {
-    backgroundColor: 'tomato',
-    textAlign: 'center',
-    fontSize: 20
-};
+// const styling = {
+//     backgroundColor: 'tomato',
+//     textAlign: 'center',
+//     fontSize: 20
+// };
 
 //PropType from Todos.js
 TodoItem.propTypes = {
