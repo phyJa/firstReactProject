@@ -4,19 +4,21 @@ import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
     //Verify if a Todo is already done and style it
-    verify () {
+    verifyAndStyle () {
+        //Define a variable which contains the style
+        const styling = {
+            padding: '10px',
+            backgroundColor: '#d2d2d2',
+            borderBottom: '3px solid darkblue'
+        };
+        // Verify and add style
         if(this.props.todo.completed) {
-           const completed = {
-               color: 'green',
-               textDecoration: 'line-through'
-           }
-            return completed; 
+            styling.color = 'green';
+            styling.textDecoration = 'line-through';
+            return styling; 
         } else {
-            const notCompleted = {
-                color: 'tomato',
-                textDecoration: 'none'
-            }
-            return notCompleted;
+            styling.color = 'red';
+            return styling;
         }
     }
     
@@ -25,7 +27,7 @@ export class TodoItem extends Component {
         return (
             // Inline style with JSX style = {{propertyInCamelCase: 'value'}}
             // Or using variables style = {varName}
-            <div style = {this.verify()}>
+            <div style = {this.verifyAndStyle()}>
               <p> {this.props.todo.title} </p>  
             </div>
         )
