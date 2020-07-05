@@ -21,14 +21,21 @@ export class TodoItem extends Component {
             return styling;
         }
     }
+
     
+    markComplete() {
+        console.log(this.props);
+    }
 
     render() {
         return (
             // Inline style with JSX style = {{propertyInCamelCase: 'value'}}
             // Or using variables style = {varName}
             <div style = {this.verifyAndStyle()}>
-              <p> {this.props.todo.title} </p>  
+                <p>
+                    <input type="checkbox" onChange={this.markComplete.bind(this)}/> {' '}
+                    {this.props.todo.title} 
+                </p>  
             </div>
         )
     }
