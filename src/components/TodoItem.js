@@ -28,7 +28,7 @@ export class TodoItem extends Component {
     // without binding it like before, we get an error. That's because in regular functions
     // the this keyword refers to the object that called the function, here the 
     // checkbox, which does not have props defined.
-    markComplete = () => console.log(this.props);
+    
 
     render() {
         return (
@@ -36,7 +36,7 @@ export class TodoItem extends Component {
             // Or using variables style = {varName}
             <div style = {this.verifyAndStyle()}>
                 <p>
-                    <input type="checkbox" onChange={this.markComplete}/> {' '}
+                    <input type="checkbox" onChange={this.props.markComplete}/> {' '}
                     {this.props.todo.title} 
                 </p>  
             </div>
