@@ -23,11 +23,13 @@ class App extends React.Component {
       }
     ]
   };
+  //Climbing the latter: define markComplete as a function and pass it like a prop
+  markComplete = () => console.log("App.js");
   //Then we pass them to Todos.js as a property
   render() {
     return (
       <div className="App">
-        <Todos todos={this.states.todos} />
+        <Todos todos={this.states.todos} markComplete={this.markComplete} />
       </div>
     );
   };
