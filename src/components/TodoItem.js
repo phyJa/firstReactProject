@@ -22,10 +22,13 @@ export class TodoItem extends Component {
         }
     }
 
-    
-    markComplete = () => {
-        console.log(this);
-    }
+    // The 'this' keyword in arrow functions refers to where the function is created.
+    // In this case it is defined inside the TodoItem class. So, it reaches the data
+    // that were passed to this class. If we do the same with regular functions,
+    // without binding it like before, we get an error. That's because in regular functions
+    // the this keyword refers to the object that called the function, here the 
+    // checkbox, which does not have props defined.
+    markComplete = () => console.log(this.props);
 
     render() {
         return (
