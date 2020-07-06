@@ -22,22 +22,19 @@ export class TodoItem extends Component {
         }
     }
 
-    // The 'this' keyword in arrow functions refers to where the function is created.
-    // In this case it is defined inside the TodoItem class. So, it reaches the data
-    // that were passed to this class. If we do the same with regular functions,
-    // without binding it like before, we get an error. That's because in regular functions
-    // the this keyword refers to the object that called the function, here the 
-    // checkbox, which does not have props defined.
-    
 
     render() {
+        // Using destructuration const {a, b} = {object.prop1, object.prop2}
+        const {id, title} = this.props.todo;
         return (
             // Inline style with JSX style = {{propertyInCamelCase: 'value'}}
             // Or using variables style = {varName}
+            // Now the bind function pass the id property up, until
+            // the markComplete function (in App.js)
             <div style = {this.verifyAndStyle()}>
                 <p>
-                    <input type="checkbox" onChange={this.props.markComplete}/> {' '}
-                    {this.props.todo.title} 
+                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/> {' '}
+                    {title}
                 </p>  
             </div>
         )

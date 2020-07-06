@@ -24,7 +24,7 @@ class App extends React.Component {
     ]
   };
   //Climbing the latter: define markComplete as a function and pass it like a prop
-  markComplete = () => console.log("App.js");
+  markComplete = (id) => console.log(id);
   //Then we pass them to Todos.js as a property
   render() {
     return (
