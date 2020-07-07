@@ -40,11 +40,15 @@ class App extends React.Component {
       }
     );
   };
+  //Define another function delTodo
+  delTodo = (id) => {
+    console.log(id);
+  }
   //Then we pass them to Todos.js as a property
   render() {
     return (
       <div className="App">
-        <Todos todos={this.states.todos} markComplete={this.markComplete} />
+        <Todos todos={this.states.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
       </div>
     );
   };

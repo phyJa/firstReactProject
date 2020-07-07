@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 // To deal with prop types:
 import PropTypes from 'prop-types';
+import { findByLabelText } from '@testing-library/react';
 
 export class TodoItem extends Component {
+    //Button style
+    buttonStyling = {
+        backgroundColor: 'red',
+        color: 'white',
+        padding: '5px',
+        float: 'right',
+        borderRadius: '50%',
+        border: 'none',
+        cursor: 'pointer'
+    }
     //Verify if a Todo is already done and style it
     verifyAndStyle () {
         //Define a variable which contains the style
@@ -32,21 +43,15 @@ export class TodoItem extends Component {
             // Now the bind function pass the id property up, until
             // the markComplete function (in App.js)
             <div style = {this.verifyAndStyle()}>
-                <p>
+                <p style = {{marginTop: '10px'}}>
                     <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/> {' '}
                     {title}
+                    <button style={this.buttonStyling} onClick={this.props.delTodo.bind(this, id)} >X</button>
                 </p>  
             </div>
         )
     }
 }
-
-//Variable for color and other styles. Note that it must be an object
-// const styling = {
-//     backgroundColor: 'tomato',
-//     textAlign: 'center',
-//     fontSize: 20
-// };
 
 //PropType from Todos.js
 TodoItem.propTypes = {

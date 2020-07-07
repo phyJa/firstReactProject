@@ -13,7 +13,11 @@ class Todos extends React.Component {
     return (
       //Pass each todo Object to <TodoItem />
       //Define the key prop to get rid of the error (be sure that it is unique for each value)
-      this.props.todos.map( (todo) => (<TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} />) )
+      this.props.todos.map( 
+        (todo) => (
+          <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} delTodo={this.props.delTodo} />
+        ) 
+      )
     );
   }
 }
