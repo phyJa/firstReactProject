@@ -9,12 +9,12 @@ class App extends React.Component {
       {
         id: 1,
         title: 'Take out the trash',
-        completed: true
+        completed: false
       },
       {
         id: 2,
         title: 'Dinner with friends',
-        completed: true
+        completed: false
       },
       {
         id: 3,
@@ -24,7 +24,22 @@ class App extends React.Component {
     ]
   };
   //Climbing the latter: define markComplete as a function and pass it like a prop
-  markComplete = (id) => console.log(id);
+  // This id is passed through the bind() function in TodoItem.js
+  markComplete = (id) => {
+    //setState() is React Predefined function
+    this.setState(
+      {
+        todos:  this.states.todos.map(
+          todo => {
+            if (todo.id === id) {
+              todo.completed = !todo.completed
+            } 
+            return todo;
+          }
+        )
+      }
+    );
+  };
   //Then we pass them to Todos.js as a property
   render() {
     return (
