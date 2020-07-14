@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 // To deal with prop types:
 import PropTypes from 'prop-types';
-import { findByLabelText } from '@testing-library/react';
 
 export class TodoItem extends Component {
     //Button style
