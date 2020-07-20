@@ -1,6 +1,20 @@
 import React from 'react'
 
 export default class AddTodo extends React.Component {
+    
+    constructor (props) {
+        super(props);
+        this.state = {
+            title: ''
+        }
+    }
+    
+    onChange = (e) => {
+        this.setState({
+            title: e.target.value
+        })
+    }
+
     render() {
         return(
         <div style={{background: "lightblue", padding: "10px"}}>
@@ -10,6 +24,8 @@ export default class AddTodo extends React.Component {
                     name="title"
                     placeholder="Add a todo here..."
                     style={{flex: "10", padding: "5px"}}
+                    value={this.state.title}
+                    onChange={this.onChange}
                 />
                 <input 
                     type="submit"
