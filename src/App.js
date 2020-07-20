@@ -8,20 +8,22 @@ class App extends React.Component {
   //Define your states
   constructor(props) {
     super(props);
+    this.id = 0;
     this.state = {
+      id: 0,
       todos: [
         {
-          id: 1,
+          id: this.id++,
           title: 'Take out the trash',
           completed: false
         },
         {
-          id: 2,
+          id: this.id++,
           title: 'Dinner with friends',
           completed: false
         },
         {
-          id: 3,
+          id: this.id++,
           title: 'Meeting with boss',
           completed: false
         }
@@ -51,12 +53,27 @@ class App extends React.Component {
     this.setState( {todos: this.state.todos.filter( todo => todo.id !== id )} )
   }
 
+  //Add todo
+  addTodo = (title) => {
+    const newTodo = {
+      id: this.id++,
+      title, //title: title
+      completed: false
+    };
+
+    this.setState(
+      {
+        todos: [...this.state.todos, newTodo]
+      }
+    );
+  }
+
   //Then we pass them to Todos.js as a property
   render() {
     return (
       <div className="App">
         <Header />
-        <AddTodo />
+        <AddTodo addTodo={this.addTodo} />
         <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
       </div>
     );

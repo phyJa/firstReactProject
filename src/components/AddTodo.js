@@ -15,10 +15,18 @@ export default class AddTodo extends React.Component {
         })
     }
 
+    onSubmit = (e) => {
+        e.preventDefault(); //A JavaScript function to prevent the submition being loaded in this file
+        this.props.addTodo(this.state.title);
+        this.setState({
+            title: ""
+        });
+    }
+
     render() {
         return(
         <div style={{background: "lightblue", padding: "10px"}}>
-            <form style={{display: "flex", margin: "15px 0"}}>
+            <form onSubmit={this.onSubmit} style={{display: "flex", margin: "15px 0"}}>
                 <input 
                     type="text"
                     name="title"
