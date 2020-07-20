@@ -11,7 +11,7 @@ export default class AddTodo extends React.Component {
     
     onChange = (e) => {
         this.setState({
-            title: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
