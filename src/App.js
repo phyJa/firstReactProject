@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'; // X as Y >> Al
 import Todos from './components/Todos';
 import Header from './components/layout/header';
 import AddTodo from './components/AddTodo';
+import About from './components/pages/About';
 
 class App extends React.Component {
   //Define your states
@@ -75,13 +76,13 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Header />
-          <Route path="/" render={props => (
+          <Route exact path="/" render={props => (
             <React.Fragment>
               <AddTodo addTodo={this.addTodo} />
               <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
             </React.Fragment>
           )}/>
-          
+          <Route path="/about" component={About} />
         </div>
       </Router>
     );
