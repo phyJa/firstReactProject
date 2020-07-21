@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom'; // X as Y >> Aliasing X to Y
 import Todos from './components/Todos';
 import Header from './components/layout/header';
 import AddTodo from './components/AddTodo';
@@ -71,11 +72,13 @@ class App extends React.Component {
   //Then we pass them to Todos.js as a property
   render() {
     return (
-      <div className="App">
-        <Header />
-        <AddTodo addTodo={this.addTodo} />
-        <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+          <AddTodo addTodo={this.addTodo} />
+          <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo} />
+        </div>
+      </Router>
     );
   };
 }
